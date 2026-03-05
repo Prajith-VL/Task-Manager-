@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pastel Productivity Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="backdrop"></div>
+  <main class="app-shell">
+    <nav class="top-nav" aria-label="Primary">
+      <a class="nav-link active" href="index.html">Home</a>
+      <a class="nav-link" href="todo.html">Todo</a>
+      <a class="nav-link" href="tracker.html">Daily Completion</a>
+      <a class="nav-link" href="fitness.html">Fitness Master</a>
+    </nav>
+
+    <header class="hero">
+      <h1>Good Morning, <span id="greetingName">John</span>.</h1>
+      <p class="subtitle">Pick a feature page and start tracking your productivity.</p>
+    </header>
+
+    <section class="feature-grid" aria-label="Feature pages">
+      <article class="feature-card feature-todo">
+        <h2>Todo Manager</h2>
+        <p>Add, edit, complete, filter, and organize your tasks by due date and priority.</p>
+        <a class="feature-link" href="todo.html">Open Todo Page</a>
+      </article>
+
+      <article class="feature-card feature-track">
+        <h2>Daily Completion</h2>
+        <p>Track daily checklist completion with tick boxes and individual task goals.</p>
+        <a class="feature-link" href="tracker.html">Open Tracker Page</a>
+      </article>
+
+      <article class="feature-card feature-fit">
+        <h2>Fitness Master</h2>
+        <p>Add exercises, record yesterday's results, and monitor your completion chart.</p>
+        <a class="feature-link" href="fitness.html">Open Fitness Page</a>
+      </article>
+    </section>
+  </main>
+
+  <script src="common.js"></script>
+</body>
+</html>

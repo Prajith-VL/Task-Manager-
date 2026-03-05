@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fitness Master</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="backdrop"></div>
+  <main class="app-shell">
+    <nav class="top-nav" aria-label="Primary">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="todo.html">Todo</a>
+      <a class="nav-link" href="tracker.html">Daily Completion</a>
+      <a class="nav-link active" href="fitness.html">Fitness Master</a>
+    </nav>
+
+    <header class="hero">
+      <h1>Fitness Master, <span id="greetingName">John</span>.</h1>
+      <p class="subtitle">Track exercises, log what you reached yesterday, and visualize completion.</p>
+    </header>
+
+    <section class="fitness-master" aria-label="Fitness tracker">
+      <div class="tracker-top">
+        <div>
+          <h2>Workout Dashboard</h2>
+          <span id="fitnessDateLabel"></span>
+        </div>
+      </div>
+
+      <div class="tracker-stats">
+        <article class="stat-card">
+          <p>Total exercises</p>
+          <strong id="fitStatTotal">0</strong>
+        </article>
+        <article class="stat-card">
+          <p>Goals hit yesterday</p>
+          <strong id="fitStatHit">0</strong>
+        </article>
+        <article class="stat-card">
+          <p>Yesterday completion</p>
+          <strong id="fitStatRate">0%</strong>
+        </article>
+        <article class="stat-card">
+          <p>Full-goal streak</p>
+          <strong id="fitStatStreak">0 days</strong>
+        </article>
+        <article class="stat-card">
+          <p>Best 7-day day</p>
+          <strong id="fitStatBest">0%</strong>
+        </article>
+      </div>
+
+      <div class="fitness-forms">
+        <form id="exerciseForm" class="fitness-form" autocomplete="off">
+          <h3>Add Exercise</h3>
+          <input id="exerciseNameInput" type="text" maxlength="60" placeholder="Exercise name (e.g. Pushups)" required />
+          <input id="exerciseGoalInput" type="number" min="1" max="5000" value="30" required />
+          <select id="exerciseUnitInput">
+            <option value="reps">reps</option>
+            <option value="minutes">minutes</option>
+            <option value="km">km</option>
+            <option value="sets">sets</option>
+          </select>
+          <button type="submit">+ Add exercise</button>
+        </form>
+
+        <form id="progressForm" class="fitness-form" autocomplete="off">
+          <h3>Log Progress</h3>
+          <input id="progressDateInput" type="date" required />
+          <select id="progressExerciseInput" required></select>
+          <input id="progressReachedInput" type="number" min="0" max="5000" placeholder="Reached value" required />
+          <input id="progressNoteInput" type="text" maxlength="120" placeholder='Note (e.g. "Reached 30 pushups")' />
+          <button type="submit">Save log</button>
+        </form>
+      </div>
+
+      <div class="daily-table-wrap">
+        <table class="daily-table fitness-table">
+          <thead>
+            <tr>
+              <th>Exercise</th>
+              <th>Goal</th>
+              <th>Yesterday reached</th>
+              <th>Yesterday note</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="exerciseTableBody"></tbody>
+        </table>
+      </div>
+
+      <section class="chart-card" aria-label="Completion chart">
+        <h3>7-Day Completion Chart</h3>
+        <canvas id="completionChart" height="220"></canvas>
+      </section>
+    </section>
+  </main>
+
+  <template id="exerciseRowTemplate">
+    <tr class="fitness-row">
+      <td class="fitness-name"></td>
+      <td class="fitness-goal"></td>
+      <td class="fitness-reached"></td>
+      <td class="fitness-note"></td>
+      <td class="fitness-status"></td>
+      <td class="fitness-actions">
+        <button type="button" data-action="edit">Edit</button>
+        <button type="button" data-action="delete">Delete</button>
+      </td>
+    </tr>
+  </template>
+
+  <script src="common.js"></script>
+  <script src="fitness.js"></script>
+</body>
+</html>

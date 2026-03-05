@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="backdrop"></div>
+  <main class="app-shell">
+    <nav class="top-nav" aria-label="Primary">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link active" href="todo.html">Todo</a>
+      <a class="nav-link" href="tracker.html">Daily Completion</a>
+      <a class="nav-link" href="fitness.html">Fitness Master</a>
+    </nav>
+
+    <header class="hero">
+      <h1>Todo Board, <span id="greetingName">John</span>.</h1>
+      <p class="subtitle">Manage all your tasks in one dedicated page.</p>
+
+      <form id="quickAddForm" class="quick-add" autocomplete="off">
+        <input id="quickAddInput" type="text" placeholder="What are we doing today?" maxlength="140" required />
+        <button type="submit">Ctrl + J</button>
+      </form>
+    </header>
+
+    <section class="controls" aria-label="Task controls">
+      <div class="control-group">
+        <label for="searchInput">Search</label>
+        <input id="searchInput" type="text" placeholder="Find a task..." />
+      </div>
+
+      <div class="control-group">
+        <label for="priorityInput">Priority</label>
+        <select id="priorityInput">
+          <option value="low">Low</option>
+          <option value="medium" selected>Medium</option>
+          <option value="high">High</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="dueDateInput">Due date</label>
+        <input id="dueDateInput" type="date" />
+      </div>
+
+      <div class="control-group">
+        <label for="viewFilter">View</label>
+        <select id="viewFilter">
+          <option value="all">All</option>
+          <option value="active">Active</option>
+          <option value="completed">Completed</option>
+          <option value="today">Due Today</option>
+          <option value="overdue">Overdue</option>
+        </select>
+      </div>
+
+      <button id="clearCompletedBtn" class="ghost-btn" type="button">Clear completed</button>
+    </section>
+
+    <section class="board-wrap">
+      <div id="emptyState" class="empty-state" hidden>
+        <h2>No tasks yet</h2>
+        <p>Add your first task above to get started.</p>
+      </div>
+      <div id="taskBoard" class="task-board" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <template id="taskTemplate">
+    <article class="task-card">
+      <div class="task-card-head">
+        <p class="task-title"></p>
+        <span class="task-priority"></span>
+      </div>
+
+      <div class="task-meta">
+        <span class="task-date"></span>
+        <span class="task-status"></span>
+      </div>
+
+      <div class="task-actions">
+        <button data-action="toggle" type="button"></button>
+        <button data-action="edit" type="button">Edit</button>
+        <button data-action="delete" type="button">Delete</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="common.js"></script>
+  <script src="todo.js"></script>
+</body>
+</html>
+
