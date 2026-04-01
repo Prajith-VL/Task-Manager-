@@ -1,4 +1,4 @@
-# Pastel Productivity Suite
+# TASK-MANAGER
 
 A lightweight, deploy-ready static web app for daily productivity with separate feature pages.
 
